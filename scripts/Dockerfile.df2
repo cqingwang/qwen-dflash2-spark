@@ -1,0 +1,3 @@
+FROM vllm/vllm-openai:v0.27.1-aarch64
+COPY o.tgz /tmp/o.tgz
+RUN mkdir -p /tmp/px && tar xzf /tmp/o.tgz -C /tmp/px && cp -r /tmp/px/vllm/* /usr/local/lib/python3.12/dist-packages/vllm/ && rm -rf /tmp/px /tmp/o.tgz

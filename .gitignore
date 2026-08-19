@@ -1,0 +1,5 @@
+# .gitignore — real one
+_gather/
+*.tgz
+__pycache__/
+.DS_Store
