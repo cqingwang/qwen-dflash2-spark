@@ -1,5 +1,9 @@
 # Qwen3.8-27B DFlash2 on 2× DGX Spark (GB10) — 135 tok/s single-stream
 
+> **Mirrors**: this repo is also on Hugging Face at
+> [cfontes/qwen-dflash2-spark](https://huggingface.co/cfontes/qwen-dflash2-spark)
+> (identical content). GitHub is canonical.
+
 **One-stop, copy-paste reproducible stack**: run Qwen3.8-27B NVFP4 with DFlash2
 block speculative decoding on two NVIDIA DGX Spark (GB10) nodes over RoCE,
 hitting **124–135 tok/s single-stream (C1)** — a **+43% speedup** over DSpark

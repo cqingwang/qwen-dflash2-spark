@@ -41,6 +41,20 @@ edit-heavy is the optimistic end (output mostly recoverable from prompt);
 fresh generation behaves differently (lower acceptance, lower tps) —
 `edit_bench.py` reports both. Only compare C1-to-C1.
 
+### Prefill / prompt processing (single request, live pair 2026-08-19)
+
+| prompt tokens | prefill tok/s | wall time |
+|---|---|---|
+| 952 | 2,340 | 0.41 s |
+| 1,853 | 2,009 | 0.92 s |
+| 3,652 | 2,776 | 1.32 s |
+| 7,252 | **3,426** | 2.12 s |
+| 14,452 | 3,257 | 4.44 s |
+
+Peak ~3,400 tok/s prefill (TP=2). Short prompts don't saturate GB10 (~2k);
+steady state ~3.2–3.4k tok/s beyond a few K tokens. Measured with
+`max_tokens=1` single requests, wall-clock × `usage.prompt_tokens`.
+
 ## Measurement provenance
 
 - tps + acceptance read from vLLM engine counters via `edit_bench.py`
